@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- Root Context: defines shared resources visible to all other web components -->
+	
+	
+	<!-- properties 를 사용하기 위한 설정 -->
+	<bean id="propertyConfiguer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>classpath:props/*.properties</value>
+			</list>
+		</property>
+	</bean>
+	
+	<!-- 소스 상에서 properties 값을 사용하고 싶을 때 하는 설정 -->
+	<!-- <util:properties id="config" location="classpath:props/superUser.properties"/> -->		
+		
+</beans>
