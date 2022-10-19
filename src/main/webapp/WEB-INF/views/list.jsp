@@ -1,6 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,7 +18,41 @@
 </head>
 <body>
 	<h3>List</h3>
+	<div>
+	안녕하세요, ${sessionScope.loginId}님, <a href="#">로그아웃</a>
+	</div>
+	<button>글쓰기</button>
+	<table>
+		<thead>
+			<tr>
+				<th><input type="checkbox" value="${bbs.idx}" name="번호"/></th>
+				<!-- <th>번호</th> -->
+				<th>제목</th>
+				<th>글쓴이</th>
+				<th>작성일</th>
+				<th>조회수</th>
+			</tr>
+			<c:if test="${list.size()==0}">
+				<tr><th colspan="5">등록된 글이 없습니다.</th></tr>
+			</c:if>
+		</thead>
+		<tbody>
+			<c:forEach items="${list}" var="bbs">
+				<tr>
+					<td><input type="checkbox" value="${bbs.idx}" name="번호"/></td>
+					<td>${bbs.subject}</td>
+					<td>${bbs.user_name}</td>
+					<td>${bbs.reg_date}</td>
+					<td>${bbs.bHit}</td>
+				</tr>
+			</c:forEach>
+		</tbody>
+	</table>
 </body>
 <script>
+var msg = "${msg}";
+if(msg != ""){
+	alert(msg);
+}
 </script>
 </html>

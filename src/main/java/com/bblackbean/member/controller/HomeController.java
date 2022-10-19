@@ -63,7 +63,8 @@ public class HomeController {
 		String page = "login";
 		
 		if(loginId != null) {
-			page = "list";
+			session.setAttribute("loginId", loginId);
+			page = "redirect:/list";
 		} else {
 			model.addAttribute("msg", msg);
 		}
