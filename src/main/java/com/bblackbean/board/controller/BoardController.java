@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.bblackbean.board.service.BoardService;
@@ -22,5 +23,12 @@ public class BoardController {
 	public ModelAndView list(HttpSession session) {
 		logger.info("리스트 요청");
 		return service.list(session);
+	}
+	
+	//상세보기
+	@RequestMapping(value="/detail")
+	public ModelAndView detail(HttpSession session, @RequestParam String idx) {
+		logger.info(idx+"번 글 요청");
+		return service.detail(session,idx);
 	}
 }

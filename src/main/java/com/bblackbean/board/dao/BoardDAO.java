@@ -8,4 +8,8 @@ public interface BoardDAO {
 
 	ArrayList<BoardDTO> list();
 
+	void upHit(String idx);
+
+	BoardDTO detail(String idx);
+
 }

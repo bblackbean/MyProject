@@ -10,4 +10,18 @@
 			,reg_date 
 		FROM bbs ORDER BY idx DESC
 	</select>
+	
+	<update id="upHit" parameterType="String">
+		UPDATE bbs SET bHit = bHit+1 WHERE idx = #{idx}
+	</update>
+	
+	<select id="detail" parameterType="String" resultType="board">
+		SELECT idx
+			,bHit
+			,user_name
+			,subject
+			,reg_date
+			,content
+		FROM bbs WHERE idx = #{idx}
+	</select>
 </mapper>

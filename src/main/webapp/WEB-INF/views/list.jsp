@@ -25,7 +25,7 @@
 	<table>
 		<thead>
 			<tr>
-				<th><input type="checkbox" value="${bbs.idx}" name="번호"/></th>
+				<th>글번호</th>
 				<!-- <th>번호</th> -->
 				<th>제목</th>
 				<th>글쓴이</th>
@@ -39,8 +39,8 @@
 		<tbody>
 			<c:forEach items="${list}" var="bbs">
 				<tr>
-					<td><input type="checkbox" value="${bbs.idx}" name="번호"/></td>
-					<td>${bbs.subject}</td>
+					<td>${bbs.idx}</td>
+					<td><a href="detail?idx=${bbs.idx}">${bbs.subject}</a></td>
 					<td>${bbs.user_name}</td>
 					<td>${bbs.reg_date}</td>
 					<td>${bbs.bHit}</td>
